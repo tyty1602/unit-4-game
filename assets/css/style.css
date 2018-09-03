@@ -1,0 +1,12 @@
+body {
+    background-image: url("images/diamond.jpg"); 
+    font-family: 'Source Sans Pro', sans-serif;
+    color: white;
+ }
+
+ #targetScore, #scoreKeeper {
+     width: 200px;
+     height: 100px;
+     background-color: black;
+     text-align: left;
+ }
