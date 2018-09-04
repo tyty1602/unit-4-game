@@ -4,7 +4,7 @@ body {
     color: white;
  }
 
- #targetScore, #scoreKeeper {
+ #targetScore, #scoreKeeper, #win-lose-counter, #wins, #losses {
      width: 200px;
      height: 100px;
      background-color: black;
