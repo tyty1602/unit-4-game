@@ -2,19 +2,22 @@ body {
     background-image: url("images/diamond.jpg"); 
     font-family: 'Source Sans Pro', sans-serif;
     color: white;
+    line-height: 1.8;
  }
 
- #targetScore, #scoreKeeper, #currentscoreID, #win-lose-counter, #wins, #losses {
-     width: 200px;
-     height: 100px;
-     background-color: black;
+ #targetScore, #scoreKeeper, #currentscoreID, .win-lose-counter, #wins, #losses {
+     width: 150px;
+     height: 75px;
+     background-color: #000033;
      border-radius: 25px;
-     text-align: left;
+     border: black solid 2px;
+     text-align: center;
+     font-family: 'Source Sans Pro', sans-serif;
  }
 
  .crystal{
     display: inline-block;
-    height: 80px;
+    height: 76px;
     width: 65px;
     background: white;
     border-radius: 25px;

@@ -24,14 +24,12 @@ $(document).ready(function () {
 
 
     function resetCrystal() {
-        console.log("sanity check crystal img");
         for (var i = 0; i < images.length; i++) {
             var crystal = $("<img>");
             crystal.addClass("crystal");
             crystal.attr("src", images[i]);
             crystal.attr("value", (Math.floor(Math.random() * 13) + 1));
             console.log("crystal value");
-            // crystal.attr("height", "100");
             $(".crystalContainer").append(crystal);
         }
     }
@@ -39,7 +37,7 @@ $(document).ready(function () {
     function crystalClick () {
 		//attr returns first value of selected html element
         counter += parseInt($(this).attr("value"));
-        $(".currentScore").html(counter);
+        $("#scoreKeeper").html(counter);
 		if (counter == targetScore) {
 			wins++;
             totalReset();
@@ -54,7 +52,8 @@ $(document).ready(function () {
         console.log("reset html");
         //$(".scoreKeeper").html(targetScore);
         $(".win-lose-counter").html("<p>Wins: " + wins + "</p>" + "<p>Losses: " + losses + "</p>");
-        $(".currentScore").html(counter);
+        $("#scoreKeeper").html(counter);
+        document.getElementById("scoreKeeper").innerText = "Your current score is " + counter;
         $(".crystalContainer").empty();
     }
         
