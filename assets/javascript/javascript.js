@@ -6,8 +6,8 @@ $(document).ready(function () {
     var Ruby = "";
     var Emerald = "";
     var scorekeeper = 0;
-    var wins = "";
-    var losses = "";
+    var wins = 0;
+    var losses = 0;
     var counter = 0;
     var images = ["assets/css/images/pearl.jpg", "assets/css/images/Ruby.jpg", "assets/css/images/emerald.jpg", "assets/css/images/Diamond-thumbnail.jpg"]
 
@@ -19,6 +19,7 @@ $(document).ready(function () {
     function newGame() {
         targetScore = Math.floor(Math.random() * 184 + 11);
         console.log("targetScore" + targetScore);
+        document.getElementById("targetScore").innerText = "Your target score is " + targetScore;
     }
 
 
@@ -30,7 +31,7 @@ $(document).ready(function () {
             crystal.attr("src", images[i]);
             crystal.attr("value", (Math.floor(Math.random() * 13) + 1));
             console.log("crystal value");
-            crystal.attr("height", "100");
+            // crystal.attr("height", "100");
             $(".crystalContainer").append(crystal);
         }
     }
@@ -38,26 +39,25 @@ $(document).ready(function () {
     function crystalClick () {
 		//attr returns first value of selected html element
         counter += parseInt($(this).attr("value"));
-        console.log("parseint stff");
-        $(".scoreKeeper").html(counter);
-        console.log("parseint part2");
+        $(".currentScore").html(counter);
 		if (counter == targetScore) {
 			wins++;
             totalReset();
-            console.log("counterworks?");
 		}
 		else if (counter > targetScore) {
 			losses++;
 			totalReset();
-		};
-	};
+		}
+	}
 
     function resetHTML() {
-        $(".targetScore").html(targetScore);
-        $("win-lose-counter").html("<p>Wins: " + wins + "</p>" + "<p>Losses: " + losses + "</p>");
-        $(".scoreKeeper").html(counter);
-		$(".crystalContainer").empty();
+        console.log("reset html");
+        //$(".scoreKeeper").html(targetScore);
+        $(".win-lose-counter").html("<p>Wins: " + wins + "</p>" + "<p>Losses: " + losses + "</p>");
+        $(".currentScore").html(counter);
+        $(".crystalContainer").empty();
     }
+        
 
     //page set up
 
@@ -67,25 +67,22 @@ $(document).ready(function () {
 
 
     function totalReset () {
-		newGame ();
+		newGame();
 		counter = 0;
-		resetHTML ();
-		resetCrystal ();
+		resetHTML();
+		resetCrystal();
 	}
 
 
-    //HTML links
-
-    function resetHTML() {
-        $("#targetScore").append(targetScore);
-    }
-
     //Onclick
 
-    $(".crystal").click(function() {
-        console.log("does onclick work?")
+    $(document).on("click", ".crystal", crystalClick);
 
-    });
+    // $(".crystal").click(function() {
+    //     console.log("does onclick work?");
+    //     crystalClick();
+
+    // });
   
 
 });

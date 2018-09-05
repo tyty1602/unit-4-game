@@ -4,9 +4,19 @@ body {
     color: white;
  }
 
- #targetScore, #scoreKeeper, #win-lose-counter, #wins, #losses {
+ #targetScore, #scoreKeeper, #currentscoreID, #win-lose-counter, #wins, #losses {
      width: 200px;
      height: 100px;
      background-color: black;
+     border-radius: 25px;
      text-align: left;
  }
+
+ .crystal{
+    display: inline-block;
+    height: 80px;
+    width: 65px;
+    background: white;
+    border-radius: 25px;
+    border: 5px solid navy;
+}
